@@ -2,14 +2,12 @@
 header("Content-type:text/html;charset= utf-8");
 
 //主机名或IP地址
-  // $url_or_ip="127.0.0.1";
-$url_or_ip="192.168.20.230";
+  $url_or_ip="127.0.0.1";
 //数据库用户名
 $user_name='root';
 //数据库密码
-$password='1qaz2wsx';
-// $password=''; 
-//设定数据库名
+$password=''; 
+//设定数据库名git 
 $datebase="project";
 
 $lnk = mysqli_connect($url_or_ip, $user_name, $password, $datebase);
