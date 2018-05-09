@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-searchbar no-margin (ionInput)="getItems($event)" autocomplete="on" cancelButtonText="取消"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item (click)="push(item.id)" *ngFor="let item of items">
+      <ion-label>{{ item.name }}</ion-label>
+      <ion-checkbox (ionChange)="insertUserArray(item,$event)"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-navbar>
+    已选择:
+    <span> {{num}}</span>
+    <button ion-button [disabled]=" num === 0 " (click)= returnUserArr() float-right>确定</button>
+  </ion-navbar>
+</ion-footer>

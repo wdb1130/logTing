@@ -1,0 +1,43 @@
+page-user {
+  .toolbar {
+    .title {
+        margin-top: 5px;
+        div {
+            text-align: center;
+            font: {
+                size: 1.3em;
+                weight: 500;
+            }
+        }
+    }
+  }
+  ion-content.content {
+    .scroll-content {
+      padding: 16px 0;
+      background: $color-light;
+      div.item {
+        padding-left: none;
+        span.title {
+          font-size: 1.4rem;
+        }
+        span.ctt {
+          color: #666;
+          float: right;
+        }
+        &.avatar {
+          line-height: 4rem;
+          .label {
+            margin: 5px 0;
+          }
+          span {
+            display: inline-block;
+            margin-top: 5px;
+          }
+          ion-avatar {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

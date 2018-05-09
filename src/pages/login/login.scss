@@ -1,0 +1,47 @@
+page-login {
+    .content[padding] {
+        background-image: url('../assets/imgs/timg.png');
+        background-size: 100%;
+        .title {
+            width: 100%;
+            margin-top: 6rem;
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+        }
+        .f-list {
+            background-color: rgba(255, 255, 255, .5);
+            padding: 10px;
+            border-radius: 5px;
+            .f-item {
+                margin-top: 1rem;
+                padding-bottom: 1rem;
+                label {
+                    display: inline-block;
+                    width: 5rem;
+                    font-size: 1.1em;
+                }
+                input {
+                    outline: none;
+                    border: none;
+                    height: 2.5rem;
+                    width: 20rem;
+                    text-indent: 5px;
+                    border-radius: 3px;
+                    background: none;
+                }
+                input:-webkit-autofill {
+                    background-color: rgba(255, 255, 255, 0) !important;
+                }
+            }
+            .f-item:first-child {
+                border-bottom: thin solid #777;
+            }
+        }
+        .msg {
+            color: red;
+            font-size: 12px;
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      合同信息
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <span>合同名称</span> 
+      &nbsp;&nbsp;
+      <span> {{items.contract}} </span>
+    </ion-item>
+    <ion-item>
+      <span>所属项目</span> 
+      &nbsp;&nbsp;
+      <span> {{items.project}} </span>
+    </ion-item>
+    <ion-item>
+      <span>合同额</span> 
+      &nbsp;&nbsp;
+      <span> {{items.contract_amount}} </span>
+    </ion-item>
+    <ion-item>
+      <span>客户名称</span> 
+      &nbsp;&nbsp;
+      <span> {{items.company}} </span>
+    </ion-item>
+
+    <ion-item>
+      <span>产品类型</span> 
+      &nbsp;&nbsp;
+      <span> {{items.bname}} </span>
+    </ion-item>
+    <ion-item>
+      <span>行业类型</span> 
+      &nbsp;&nbsp;
+      <span> {{items.dname}} </span>
+    </ion-item>
+
+    <ion-item>
+      <span>城市</span> 
+      &nbsp;&nbsp;
+      <span> {{items.ename}} </span>
+    </ion-item>
+    <ion-item>
+      <span>签订日期</span> 
+      &nbsp;&nbsp;
+      <span> {{items.signing_date}} </span>
+    </ion-item>
+    <ion-item>
+      <span>合同交货日期</span> 
+      &nbsp;&nbsp;
+      <span> {{items.contract_delivery_date}} </span>
+    </ion-item>
+    <ion-item>
+      <span>业务员</span> 
+      &nbsp;&nbsp;
+      <span> {{items.cname}} </span>
+    </ion-item>
+    <ion-item *ngIf="items.content ">
+      <span>备注</span>
+      <p class="ctt" [innerHtml]="items.content"> </p>
+    </ion-item>
+  </ion-list>
+</ion-content>

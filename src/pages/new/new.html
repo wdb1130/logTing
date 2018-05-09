@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>
+      新建日志
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="form_submit(myForm.value)" #myForm="ngForm">
+    <ion-list margin-top>
+      <div ion-item>
+        <label>今日完成工作</label>
+        <textarea (keyup)="textAreaAdjust($event)" placeholder="请输入" [(ngModel)]="finished_work" name="finished_work"></textarea>
+      </div>
+      <div ion-item>
+        <label>未完成工作</label>
+        <textarea (keyup)="textAreaAdjust($event)" placeholder="请输入" [(ngModel)]="unfinished_work" name="unfinished_work"></textarea>
+      </div>
+      <div ion-item>
+        <label> 计划工作</label>
+        <textarea (keyup)="textAreaAdjust($event)" placeholder="请输入" [(ngModel)]="plan_work" name="plan_work"></textarea>
+      </div>
+      <div ion-item class="remark">
+        <textarea (keyup)="textAreaAdjust($event)" placeholder="备注" [(ngModel)]="remarks" name="remarks"></textarea>
+      </div>
+    </ion-list>
+
+    <div class="group">
+      <div class="work-load">
+        <div class="title">项目耗时</div>
+        <div class="item" *ngFor="let pj of projects,let i = index">
+          <span class="pj-name">{{pj.name}}</span>
+          <input type="number" placeholder="请输入" class="hours" [(ngModel)]="pj.hour" [name]="'hour-'+i">
+          <input type="number" [hidden]="true" [(ngModel)]="pj.id" [name]="'project-'+i">
+          <input type="number" [hidden]="true" [(ngModel)]="pj.name" [name]="'name-'+i">
+
+          <ion-icon  (click)=switchFlag(i) name="arrow-dropright-circle" [hidden]="!arrFlag[i]" float-right color="primary"></ion-icon>
+          <ion-icon  (click)=switchFlag(i) name="arrow-dropdown-circle" [hidden]="arrFlag[i]" float-right color="primary"></ion-icon>
+
+          <span float-right>小时</span>
+          <div class="remark-box" [hidden]="arrFlag[i]">
+            <input type="text" placeholder="备注" [(ngModel)]="pj.remark" [name]="'remark-'+i">
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="file">
+        <div class="pic">
+          <span>图片</span>
+          <page-select-picture [(fileObjList)]="fileObjList"></page-select-picture>
+        </div>
+      </div>
+
+      <div class="send-people">
+        <div class="title">选择接收人</div>
+        <div class="people-list">
+          <div (click)="del_people(item.id)" *ngFor="let item of receivers">
+            <ion-avatar>{{item.name.slice(-2)}}</ion-avatar>
+            <p no-margin>{{item.name}}</p>
+          </div>
+          <div (click)="jump(1)">
+            <ion-icon name='add-circle'></ion-icon>
+            <p no-margin>添加人</p>
+          </div>
+
+          <!-- 选择发送的人 -->
+          <input type="text" [hidden]="true" name='receive_people' [(ngModel)]="receiverIds">
+          <input type="text" [hidden]="true" name='user_id' [(ngModel)]="user">
+          <!-- <input type="text" [hidden]="true" name='user_id' [(ngModel)]="user"> -->
+        </div>
+      </div>
+    </div>
+    <button ion-button block margin-top>提交</button>
+  </form>
+</ion-content>

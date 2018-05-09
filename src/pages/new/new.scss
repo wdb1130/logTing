@@ -1,0 +1,125 @@
+page-new {
+    ion-content.content {
+        .scroll-content {
+            background: $color-light;
+            .list {
+                .item {
+                    margin-top: 5px;
+                    .item-inner {
+                        border: none;
+                        ion-label.label {
+                            height: 100%;
+                            padding-top: 1.3rem;
+                            margin: 0;
+                            label {
+                                min-width: 9.5rem;
+                                float: left;
+                            }
+                            textarea {
+                                width: calc(100% - 9.5rem);
+                                height: 2.5rem;
+                                padding-left: 5px;
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+                }
+                .item.remark {
+                    padding-left: 12px;
+                    min-height: 70px;
+                    ion-label.label {
+                        padding: 5px 0;
+                        textarea {
+                            height: 100%;
+                            width: 100%;
+                            padding-left: 2px;
+                        }
+                    }
+                }
+            }
+            div.group {
+                &>div {
+                    padding: 16px;
+                    margin-top: 5px;
+                    background: #fff;
+                    .title {
+                        font-size: 1.6rem;
+                        padding-bottom: 5px;
+                    }
+                }
+                div.file {
+                    height: 8rem;
+                    div.pic {
+                        font-size: 1.6rem;
+                        height: 5rem;
+                        >span {
+                            float: left;
+                            line-height: 5rem;
+                        }
+                        page-select-picture .add {
+                            float: right;
+                            border: none;
+                        }
+                    }
+                }
+                div.work-load {
+                    div.item {
+                        padding-left: 16px;
+                        width: 100%;
+                        min-height: 2.6rem;
+                        span.pj-name {
+                            display: inline-block;
+                            min-width: 8rem;
+                        }
+                        input.hours {
+                            margin-left: 12px;
+                            border-radius: 3px; // border: thin solid #dfdfdf;
+                            border: none;
+                            width: 10rem;
+                        }
+                        span[float-right] {
+                            margin-right: 1rem;
+                        }
+                        ion-icon {
+                            min-height: 1rem; 
+                            font-size: 2.5rem; 
+                        }
+                        div.remark-box {
+                            text-align: center;
+                            input {
+                                border-radius: 4px;
+                                border: thin solid $border;
+                                width: calc(100% - 1rem);
+                                height: 2.5rem;
+                                margin: 5px 0;
+                                margin-bottom: 1rem;
+                                padding: 1px 5px;
+                            }
+                        }
+                    }
+                }
+                p.location {
+                    color: #555;
+                }
+                div.send-people {
+                    div.people-list {
+                        color: #333;
+                        >div {
+                            text-align: center;
+                            width: 5rem;
+                            display: inline-block;
+                            ion-icon {
+                                color: #ddd;
+                                font-size: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+            .button {
+                margin: 16px;
+                width: calc(100% - 32px);
+            }
+        }
+    }
+}

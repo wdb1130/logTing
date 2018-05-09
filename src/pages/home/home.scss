@@ -1,0 +1,98 @@
+    page-home {
+        .toolbar {
+            .title {
+                margin-top: 5px;
+                div {
+                    text-align: center;
+                    font: {
+                        size: 1.3em;
+                        weight: 500;
+                    }
+                }
+            }
+            min-height: 40px;
+        }
+        .content-ios {
+            background: $color-light;
+            .scroll-content {
+                padding: 0;
+                .list {
+                    .filter {
+                        height: 3rem;
+                        text-align: center;
+                        background: #fff;
+                        margin-bottom: 10px;
+                        line-height: 3rem;
+                        button {
+                            height: 2rem;
+                            width: 6rem;
+                            border-radius: 3px;
+                            background: #ddd;
+                            font-size: 1.4rem;
+                        }
+                        button:first-child {
+                            margin-right: 16px;
+                        }
+                        button.active {
+                            color: #fff;
+                            background-color: $color;
+                        }
+                    }
+                    .card-ios {
+                        margin: 0;
+                        width: 100%;
+                        box-shadow: inherit;
+                        border-radius: 0;
+                        background: #fff;
+                        border-bottom: 1px solid #c8c7cc;
+                        .item {
+                            ion-label {
+                                padding: 0;
+                                .read {
+                                    background: #f1f1f1;
+                                    border-radius: 3px;
+                                    color: #888;
+                                    font-size: 1.2rem;
+                                    padding: 5px;
+                                }
+                                .unread {
+                                    height: 10px;
+                                    width: 10px;
+                                    border-radius: 50%;
+                                    background-color: #09c709;
+                                }
+                                h2 {
+                                    margin-top: 0;
+                                }
+                            }
+                        }
+                        ion-card-content {
+                            div {
+                                span {
+                                    color: #777;
+                                }
+                            }
+                        }
+                    }
+                    .item-wrapper:last-child .item-block {
+                        border-bottom: none;
+                    }
+                    ion-item-sliding {
+                        >.item {
+                            padding: 0;
+                            border-bottom: thin solid #c8c7cc;
+                            .item-inner {
+                                border: none;
+                                .label-ios {
+                                    margin: 0;
+                                    .card-ios {
+                                        border: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }

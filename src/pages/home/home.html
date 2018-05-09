@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>日志</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="tom">
+        我收到的
+      </ion-segment-button>
+      <ion-segment-button value="jerry">
+        我发出的
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  <div [ngSwitch]="pet">
+    <!-- 我接收的日志 -->
+    <ion-list *ngSwitchCase="'tom'">
+
+      <!-- 日志过滤 -->
+      <div class="filter">
+        <button (click)="filterLog($event,0)">未读</button>
+        <button class="active" (click)="filterLog($event,1)">全部</button>
+      </div>
+
+      <ion-card (click)="jump(item.id,item.read_flag)" *ngFor="let item of receiveLog">
+        <ion-item>
+          <ion-avatar item-start>
+            {{item.create_by.slice(-2)}}
+          </ion-avatar>
+          <!-- 已读未读标志 -->
+          <span *ngIf="item.read_flag == 1" float-right class="read">已读</span>
+          <span *ngIf="item.read_flag == 0" float-right class="unread"></span>
+          <h2>{{item.create_by}} </h2>
+          <p>{{item.create_date}}</p>
+        </ion-item>
+        <ion-card-content>
+          <p>
+            <span>今日完成工作：</span>
+            {{item.finished_work}}
+          </p>
+          <p *ngIf="item.unfinished_work">
+            <span>今日未完成工作：</span>
+            {{item.unfinished_work}}
+          </p>
+          <p *ngIf="item.plan_work">
+            <span>计划工作：</span>
+            {{item.plan_work}}
+          </p>
+        </ion-card-content>
+      </ion-card>
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event,'receive')">
+        <ion-infinite-scroll-content loadingSpinner=""></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ion-list>
+
+    <!-- 我发出的日志 -->
+    <ion-list *ngSwitchCase="'jerry'">
+
+      <ion-item-sliding *ngFor="let item of myLog" (click)="jump(item.id,1)">
+        <ion-item>
+          <ion-card>
+            <ion-item>
+              <ion-avatar item-start>
+                {{(''+item.create_by).slice(-2)}}
+              </ion-avatar>
+              <h2>{{item.create_by}}</h2>
+              <p>{{item.create_date}}</p>
+            </ion-item>
+            <ion-card-content>
+              <p>
+                <span>今日完成工作：</span>
+                {{item.finished_work}}
+              </p>
+              <p *ngIf="item.unfinished_work">
+                <span>今日未完成工作：</span>
+                {{item.unfinished_work}}
+              </p>
+              <p *ngIf="item.plan_work">
+                <span>计划工作：</span>
+                {{item.plan_work}}
+              </p>
+            </ion-card-content>
+          </ion-card>
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button color='danger' ion-button (click)="del(item.id);$event.stopPropagation();">刪除</button>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+      <ion-infinite-scroll (ionInfinite)="doInfinite($event,'send')">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+
+    </ion-list>
+
+  </div>
+</ion-content>

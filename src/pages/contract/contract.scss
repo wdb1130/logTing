@@ -1,0 +1,33 @@
+page-contract {
+    .toolbar-background {
+        // background: $color;
+        ion-title {
+            padding: 0 3rem;
+            .searchbar .searchbar-input {
+                height: 3rem;
+                display: inline-block;
+            }
+            .searchbar .searchbar-search-icon {
+                top: 10px;
+            }
+        }
+    }
+    ion-content.content {
+        .scroll-content {
+            background: $color-light;
+            .searchbar {
+                background: #ddd;
+                &>div {
+                    border-radius: 5px;
+                    overflow: hidden;
+                }
+            }
+            ion-item {
+                // border: thin solid #aaa; // padding: 0 10px;
+                ion-icon {
+                    float: right;
+                }
+            }
+        }
+    }
+}

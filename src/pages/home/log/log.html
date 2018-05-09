@@ -1,0 +1,102 @@
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>{{logCtt.create_by}}的日报</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-card>
+        <ion-item>
+            <ion-avatar item-start>
+                {{(''+logCtt.create_by).slice(-2)}}
+            </ion-avatar>
+            <h2>{{logCtt.create_by}}</h2>
+            <p>{{logCtt.create_date}}</p>
+        </ion-item>
+        <ion-card-content>
+            <div class="work-content">
+                <p>
+                    <span>今日完成工作：</span>
+                    <br> {{logCtt.finished_work}}
+                </p>
+                <p>
+                    <span>未完成工作：</span>
+                    <br> {{logCtt.unfinished_work}}
+                </p>
+                <p>
+                    <span>计划完成工作：</span>
+                    <br> {{logCtt.plan_work}}
+                </p>
+                <p>
+                    <span>备注：</span>
+                    <br> {{logCtt.remark_a}}
+                </p>
+            </div>
+            <div class="img-list" padding>
+                <img [src]="item.path" *ngFor="let item of imgList;let i=index" (click)="viewerPicture(i)">
+            </div>
+            <div class="work-load">
+                <div *ngFor="let item of logMsg,let i = index">
+                    <div *ngIf="item.hours != '0' ">
+                        <span class="pj-name">{{item.project_name}}</span>
+                        <span *ngIf="item.hours != null">{{item.hours}}  &nbsp;&nbsp;&nbsp; 小时</span>
+                        <p>
+                            备注： &nbsp;&nbsp; {{item.remark_b}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-item *ngIf="false">
+        <div class="pic"></div>
+    </ion-item>
+
+    <ion-item>
+        <span>已读 {{readingNum}} 人</span>
+        <div *ngIf="anyoneRead" class="people-list">
+            <div *ngFor="let item of logReadInfo">
+                <ion-avatar>
+                    {{item.name.slice(-2)}}
+                </ion-avatar>
+                <p no-margin> {{item.name}} </p>
+            </div>
+        </div>
+
+        <p *ngIf="!anyoneRead" margin-top>
+            还没有人读过呢
+        </p>
+    </ion-item>
+
+    <ion-item>
+        <p *ngIf="!remarkFlag" class="empty">
+            暂无评论
+        </p>
+        <div *ngIf="remarkFlag" class="comment" style='color: #333'>
+            <span>评论：</span>
+            <br>
+            <div class="comment-item" *ngFor="let item of logReadInfo">
+                <ion-avatar float-left>
+                    {{item.name.slice(-2)}}
+                </ion-avatar>
+                <div>
+                    <span>{{item.name}}</span>
+                    <p>
+                        {{item.remarks}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ion-item>
+</ion-content>
+
+<ion-footer>
+    <ion-navbar>
+        <input type="text" (focus)="toggle()" [(ngModel)]="comment" id='comment' placeholder="小小鼓励,让团队更凝聚">
+        <button [hidden]='isHide' (click)='send()' ion-button>发送</button>
+    </ion-navbar>
+</ion-footer>

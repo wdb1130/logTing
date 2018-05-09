@@ -1,0 +1,43 @@
+page-detail {
+    .list {
+        .item-block:first-child {
+            border: none;
+        }
+        .item-block:last-child {
+            border: none;
+        }
+        .item-block {
+            height: 2rem;
+            min-height: 3rem;
+            .item-inner {
+                border-bottom: none;
+                ion-label.label {
+                    min-height: 2rem;
+                    span:first-child {
+                        color: #666;
+                        display: inline-flex;
+                        min-width: 7rem;
+                    }
+                    span:last-child {
+                        color: #333;
+                        display: inline-block;
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+        .item-block:last-child {
+            ion-label.label {
+                white-space: inherit;
+                overflow: inherit;
+                text-overflow: inherit;
+                p.ctt {
+                    margin-left: 5rem;
+                    margin-top: -1.5rem;
+                    text-indent: 2rem;
+                    color: #222;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+page-user-list {
+    ion-header {}
+    ion-content {}
+    ion-footer {
+        .toolbar {
+            line-height: 3rem;
+            min-height: 50px;
+            .button {
+                height: 2.5rem;
+            }
+        }
+    }
+}
