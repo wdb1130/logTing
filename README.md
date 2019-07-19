@@ -1,9 +1,9 @@
 # logTing
 log manage
 
-#first 
+# first 
 npm insatll
 
-#second
+# second
 ionic serve
 
